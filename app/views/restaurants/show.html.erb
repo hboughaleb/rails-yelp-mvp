@@ -11,4 +11,20 @@
       <%= link_to "Delete", restaurant_path(@restaurant), method: :delete, data: { confirm: "Are you sure?"} %>
     </div>
   </div>
+  <% @restaurant.reviews.each do |r| %>
+    <p><%= r.content %></p>
+    <p><%= r.rating %></p>
+  <% end %>
+
+
+  <div class="row">
+    <div class="col-xs-12">
+      <h1 class="text-center"> Add a review!</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <%= render 'reviews/form', restaurant: @restaurant, review: @review %>
+    </div>
+  </div>
 </div>
